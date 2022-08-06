@@ -77,7 +77,8 @@ def delete_emails(server, delete_list):
         for motif in delete_list:
             if motif in email_address:
                 status = "\033[31mDELETE\033[0m"
-                server.store(str(num), '+FLAGS', '\\Deleted')
+                server.store(str(num), '+X-GM-LABELS', '\\Trash')
+                #server.store(str(num), '+FLAGS', '\\Deleted')
 
         print(status, email_address)
 
