@@ -67,7 +67,7 @@ def normalize_email_address(email_address):
 def delete_emails(server, delete_list):
     typ, msgnums = server.select("INBOX")
 
-    for num in range(1, int(msgnums[0])):
+    for num in range(1, int(msgnums[0])+1):
         status = "\033[32mKEEP  \033[0m"
         typ, data = server.fetch(str(num), 'BODY.PEEK[HEADER.FIELDS (FROM)]')
 
